@@ -1,0 +1,5 @@
+c:\users\eyal\documents\visual studio 2013\Projects\YahooFinanceLibraryDLL\YahooFinanceLibraryDLL\bin\Debug\YahooFinanceLibraryDLL.dll
+c:\users\eyal\documents\visual studio 2013\Projects\YahooFinanceLibraryDLL\YahooFinanceLibraryDLL\bin\Debug\YahooFinanceLibraryDLL.pdb
+c:\users\eyal\documents\visual studio 2013\Projects\YahooFinanceLibraryDLL\YahooFinanceLibraryDLL\obj\Debug\YahooFinanceLibraryDLL.dll
+c:\users\eyal\documents\visual studio 2013\Projects\YahooFinanceLibraryDLL\YahooFinanceLibraryDLL\obj\Debug\YahooFinanceLibraryDLL.pdb
+c:\users\eyal\documents\visual studio 2013\Projects\YahooFinanceLibraryDLL\YahooFinanceLibraryDLL\bin\Debug\YahooFinanceLibraryDLL.XML

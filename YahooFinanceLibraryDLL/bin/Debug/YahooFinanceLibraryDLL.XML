@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>YahooFinanceLibraryDLL</name>
+    </assembly>
+    <members>
+        <member name="T:YahooFinanceLibraryDLL.FinanceData">
+            <summary>
+            Class that contain finance data
+            Implements IFinanceDataService
+            </summary>
+        </member>
+        <member name="T:YahooFinanceLibraryDLL.IFinanceDataService">
+            <summary>
+            Interface of finance data services
+            </summary>
+        </member>
+        <member name="M:YahooFinanceLibraryDLL.IFinanceDataService.GetFinanceDataService(System.String)">
+            <summary>
+            Get finance data service for given symbol
+            </summary>
+            <param name="companySymbol">Company finance symbol should contains upper letters only</param>
+            <returns>IFinanceDataService</returns>
+        </member>
+        <member name="M:YahooFinanceLibraryDLL.FinanceData.#ctor(System.String,System.String,System.Double,System.Double,System.String,System.String,System.String)">
+            <summary>
+            Constructor of FinanceData
+            </summary>
+            <param name="symbol">Finance symbol in upper letters</param>
+            <param name="companyName">Company name of symbol given</param>
+            <param name="currentValue">Finance current value</param>
+            <param name="change">Finance change value</param>
+            <param name="percentChange">Percent change of finance</param>
+            <param name="lastTradeTime">Hour of last trade time</param>
+            <param name="lastTradeDate">Date of last trade time</param>
+        </member>
+        <member name="M:YahooFinanceLibraryDLL.FinanceData.#ctor">
+            <summary>
+            Default constructor of FinanceData
+            </summary>
+        </member>
+        <member name="M:YahooFinanceLibraryDLL.FinanceData.GetFinanceDataService(System.String)">
+            <summary>
+            FinanceData implements GetFinanceDataService 
+            </summary>
+            <param name="companySymbol">Company name of symbol given</param>
+            <returns></returns>
+        </member>
+        <member name="F:YahooFinanceLibraryDLL.FinanceDataImport.instance">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:YahooFinanceLibraryDLL.FinanceDataImport.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:YahooFinanceLibraryDLL.FinanceDataImport.GetFinanceDataService(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="companySymbol"></param>
+            <returns></returns>
+        </member>
+        <member name="P:YahooFinanceLibraryDLL.FinanceDataImport.Instance">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:YahooFinanceLibraryDLL.FinanceDataServiceException.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:YahooFinanceLibraryDLL.FinanceDataServiceException.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:YahooFinanceLibraryDLL.FinanceDataServiceException.#ctor(System.String,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="inner"></param>
+        </member>
+        <member name="M:YahooFinanceLibraryDLL.FinanceDataServiceFactory.GetFinanceDataService(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="companySymbol"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
