@@ -4,57 +4,47 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YahooFinanceLibraryDLL
+namespace FinanceLibrary
 {
     /// <summary>
-    /// 
+    /// Class that contain finance data
+    /// Implements IFinanceDataService
     /// </summary>
-    public class FinanceDataClass
+    class FinanceDataClass : FinanceData, IFinanceDataService
     {
-        public string symbol { get; set; }
-        public string companyName { get; set; }
-        public double currentValue { get; set; }
-        public double change { get; set; }
-        public string percentChange { get; set; }
-        public string lastTradeTime { get; set; }
-        public string lastTradeDate { get; set; }
-
         /// <summary>
-        /// 
+        /// Constructor of FinanceData
         /// </summary>
-        /// <param name="symbol"></param>
-        /// <param name="companyName"></param>
-        /// <param name="currentValue"></param>
-        /// <param name="change"></param>
-        /// <param name="percentChange"></param>
-        /// <param name="lastTradeTime"></param>
-        /// <param name="lastTradeDate"></param>
-        protected FinanceDataClass(string symbol, string companyName, double currentValue, double change, string percentChange,
+        /// <param name="symbol">Finance symbol in upper letters</param>
+        /// <param name="companyName">Company name of symbol given</param>
+        /// <param name="currentValue">Finance current value</param>
+        /// <param name="change">Finance change value</param>
+        /// <param name="percentChange">Percent change of finance</param>
+        /// <param name="lastTradeTime">Hour of last trade time</param>
+        /// <param name="lastTradeDate">Date of last trade time</param>
+        public FinanceDataClass(string symbol, string companyName, double currentValue, double change, string percentChange,
             string lastTradeTime, string lastTradeDate)
+            : base(symbol, companyName, currentValue, change, percentChange, lastTradeTime, lastTradeDate)
         {
-            this.symbol = symbol;
-            this.companyName = companyName;
-            this.currentValue = currentValue;
-            this.change = change;
-            this.percentChange = percentChange;
-            this.lastTradeTime = lastTradeTime;
-            this.lastTradeDate = lastTradeDate;
         }
 
-        /// <summary>
-        /// 
+ /*       /// <summary>
+        /// Default constructor of FinanceData
         /// </summary>
-        /// <returns></returns>
-        public override string ToString()
+        public FinanceDataClass() : base("","",0,0,"","","")
         {
-            string description = "Company name: " + companyName;
-            description += "\nSymbol: " + symbol;
-            description += "\nCurrent Value: " + currentValue;
-            description += "\nChange: " + change;
-            description += "\nPercentage Change: " + percentChange;
-            description += "\nLast trade time: " + lastTradeDate + " " + lastTradeTime;
+            
+        } */
 
-            return description;
+        /// <summary>
+        /// FinanceData implements GetFinanceDataService 
+        /// </summary>
+        /// <param name="companySymbol">Company name of symbol given</param>
+        /// <returns></returns>
+        public IFinanceDataService GetFinanceDataService(string companySymbol)
+        {
+            //return FinanceDataServiceFactory();
+            return null;
         }
     }
 }

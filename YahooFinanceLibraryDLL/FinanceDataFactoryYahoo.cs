@@ -5,17 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace YahooFinanceLibraryDLL
+namespace FinanceLibrary
 {
+    /// <summary>
+    /// Create FinanceData object from Yahoo server
+    /// </summary>
     class FinanceDataFactoryYahoo : IFinanceDataService
     {
         /// <summary>
-        /// 
+        /// Part of Singleton design pattern structure
         /// </summary>
         private static FinanceDataFactoryYahoo instance;
 
         /// <summary>
-        /// 
+        /// Part of Singleton design pattern structure
         /// </summary>
         public static FinanceDataFactoryYahoo Instance
         {
@@ -30,20 +33,23 @@ namespace YahooFinanceLibraryDLL
         }
 
         /// <summary>
-        /// 
+        /// Part of Singleton design pattern structure
         /// </summary>
         private FinanceDataFactoryYahoo()
         {
         }
 
         /// <summary>
-        /// 
+        /// Implementation of IFinanceDataService
+        /// Import finance data and parse xml received from yahoo server
         /// </summary>
         /// <param name="companySymbol"></param>
         /// <returns></returns>
         public IFinanceDataService GetFinanceDataService(string companySymbol)
         {
-            //FinanceData financeData = new FinanceData();
+            string companyName, changeinPercent, lastTradeTime, lastTradeDate;
+            double lastTradePrice, change;
+
             var addr =
                 "https://query.yahooapis.com/v1/public/yql?q=select+%2A+from+yahoo.finance.quotes+where+symbol+in+%28%22" +
                 companySymbol +
@@ -55,8 +61,7 @@ namespace YahooFinanceLibraryDLL
             }
             catch (Exception e)
             {
-                throw new FinanceDataServiceException("Unable to connect to http Yahoo server. Reason: " + e.Message);
-                return null;
+                throw new FinanceDataServiceException("Unable to connect to http Yahoo server. Reason: " + e.Message, e);
             }
 
             try
@@ -64,22 +69,22 @@ namespace YahooFinanceLibraryDLL
                 XmlNodeList xnList = xml.SelectNodes("/query/results/quote");
                 foreach (XmlNode xn in xnList)
                 {
-                    string companyName = xn["Name"].InnerText;
-                    double lastTradePrice = double.Parse(xn["LastTradePriceOnly"].InnerText);
-                    double change = double.Parse(xn["Change"].InnerText);
-                    string changeinPercent = xn["ChangeinPercent"].InnerText;
-                    string lastTradeTime = xn["LastTradeTime"].InnerText;
-                    string lastTradeDate = xn["LastTradeDate"].InnerText;
+                    companyName = xn["Name"].InnerText;
+                    lastTradePrice = double.Parse(xn["LastTradePriceOnly"].InnerText);
+                    change = double.Parse(xn["Change"].InnerText);
+                    changeinPercent = xn["ChangeinPercent"].InnerText;
+                    lastTradeTime = xn["LastTradeTime"].InnerText;
+                    lastTradeDate = xn["LastTradeDate"].InnerText;
 
-                    return new FinanceData(companySymbol, companyName, lastTradePrice, change, changeinPercent, lastTradeTime, lastTradeDate);
+                    return new FinanceDataClass(companySymbol, companyName, lastTradePrice, change, changeinPercent, lastTradeTime, lastTradeDate);
                 }
+                throw new FinanceDataServiceException("The xml cannot be parsed");
             }
             catch (Exception e)
             {
-                throw new FinanceDataServiceException("Unable to parse node list. Reason: " + e.Message);
+                throw new FinanceDataServiceException("Unable to parse node list. Reason: " + e.Message, e);
             }
-
-            return new FinanceData();
+            
         }
     }
 }

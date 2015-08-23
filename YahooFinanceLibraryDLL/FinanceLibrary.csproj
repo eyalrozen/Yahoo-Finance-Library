@@ -7,7 +7,7 @@
     <ProjectGuid>{7D78663F-519E-41A8-93B1-BDC775159FFF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>YahooFinanceLibraryDLL</RootNamespace>
+    <RootNamespace>FinanceLibrary</RootNamespace>
     <AssemblyName>YahooFinanceLibraryDLL</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -40,8 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FinanceData.cs" />
     <Compile Include="FinanceDataClass.cs" />
+    <Compile Include="FinanceData.cs" />
     <Compile Include="FinanceDataFactory.cs" />
     <Compile Include="FinanceDataFactoryYahoo.cs" />
     <Compile Include="FinanceDataServiceException.cs" />

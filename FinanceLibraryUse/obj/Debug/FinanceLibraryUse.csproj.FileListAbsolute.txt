@@ -1,0 +1,11 @@
+C:\Users\Laura\Documents\Visual Studio 2013\Projects\FinanceLibrary\FinanceLibraryUse\bin\Debug\FinanceLibraryUse.exe.config
+C:\Users\Laura\Documents\Visual Studio 2013\Projects\FinanceLibrary\FinanceLibraryUse\bin\Debug\FinanceLibraryUse.exe
+C:\Users\Laura\Documents\Visual Studio 2013\Projects\FinanceLibrary\FinanceLibraryUse\bin\Debug\FinanceLibraryUse.pdb
+C:\Users\Laura\Documents\Visual Studio 2013\Projects\FinanceLibrary\FinanceLibraryUse\bin\Debug\YahooFinanceLibraryDLL.dll
+C:\Users\Laura\Documents\Visual Studio 2013\Projects\FinanceLibrary\FinanceLibraryUse\bin\Debug\YahooFinanceLibraryDLL.pdb
+C:\Users\Laura\Documents\Visual Studio 2013\Projects\FinanceLibrary\FinanceLibraryUse\bin\Debug\YahooFinanceLibraryDLL.xml
+C:\Users\Laura\Documents\Visual Studio 2013\Projects\FinanceLibrary\FinanceLibraryUse\obj\Debug\FinanceLibraryUse.csprojResolveAssemblyReference.cache
+C:\Users\Laura\Documents\Visual Studio 2013\Projects\FinanceLibrary\FinanceLibraryUse\obj\Debug\FinanceLibraryUse.exe
+C:\Users\Laura\Documents\Visual Studio 2013\Projects\FinanceLibrary\FinanceLibraryUse\obj\Debug\FinanceLibraryUse.pdb
+C:\Users\Laura\Documents\Visual Studio 2013\Projects\FinanceLibrary\FinanceLibraryUse\bin\Debug\FinanceLibraryUse.exe.CodeAnalysisLog.xml
+C:\Users\Laura\Documents\Visual Studio 2013\Projects\FinanceLibrary\FinanceLibraryUse\bin\Debug\FinanceLibraryUse.exe.lastcodeanalysissucceeded

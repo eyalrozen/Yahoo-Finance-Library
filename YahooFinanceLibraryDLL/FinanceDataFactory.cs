@@ -4,59 +4,44 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YahooFinanceLibraryDLL
+namespace FinanceLibrary
 {
     /// <summary>
-    /// 
+    /// Create FinanceData instance via indicated server (FinanceImport enum)
     /// </summary>
-    public class FinanceDataFactory// : IFinanceDataService
+    public class FinanceDataFactory
     {
         /// <summary>
-        /// 
+        /// Create enum for each possible finance import option
         /// </summary>
         public enum FinanceImport { YAHOO };
 
- /*       /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="companySymbol"></param>
-        /// <returns></returns>
-        public abstract IFinanceDataService GetFinanceDataService(string companySymbol); */
-
         /// <summary>
-        /// 
+        /// Factory of FinanceData object, will import data via FinanceImport enum value
+        /// Throws FinanceDataServiceException
         /// </summary>
-        /// <param name="importFrom"></param>
-        /// <param name="companySymbol"></param>
+        /// <param name="importFrom">Enum of wanted server import</param>
+        /// <param name="companySymbol">Stock company symbol</param>
         /// <returns></returns>
         public IFinanceDataService GetFinanceDataService(FinanceImport importFrom, string companySymbol)
         {
-            switch (importFrom)
+            if (companySymbol == "") throw new FinanceDataServiceException("Symbol cannot be empty string");
+
+            try
             {
-                case FinanceImport.YAHOO:
-                   // return new FinanceDataFactoryYahoo.Instance().GetFinanceDataService(companySymbol);
-                    return FinanceDataFactoryYahoo.Instance.GetFinanceDataService(companySymbol);
-                default:
-                    return null;
+                switch (importFrom)
+                {
+                    case FinanceImport.YAHOO:
+                        return FinanceDataFactoryYahoo.Instance.GetFinanceDataService(companySymbol);
+                    default:
+                        throw new FinanceDataServiceException("FinanceImport enum is invalid");
+                }
+            }
+            catch (Exception e)
+            {
+                throw new FinanceDataServiceException("Unable to create FinanceData object with symbol [" + companySymbol + "]"
+                + " from " + importFrom.ToString() + ". Reason: " + e.Message, e);
             }
         }
-
-        /*      /// <summary>
-              /// 
-              /// </summary>
-              /// <param name="importFrom"></param>
-              /// <param name="symbolCompany"></param>
-              /// <returns></returns>
-              public IFinanceDataService FinanceDataServiceFactory(FinanceImport importFrom, string symbolCompany)
-              {
-                  switch (importFrom)
-                  {
-                      case FinanceImport.YAHOO:
-                          return FinanceDataFactoryYahoo.Instance.GetFinanceDataService(symbolCompany);
-                      default:
-                          return null;
-                  }
-              }
-          }*/
     }
 }

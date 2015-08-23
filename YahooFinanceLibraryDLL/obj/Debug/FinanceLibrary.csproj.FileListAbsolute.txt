@@ -1,0 +1,8 @@
+C:\Users\Laura\Documents\Visual Studio 2013\Projects\FinanceLibrary\YahooFinanceLibraryDLL\bin\Debug\YahooFinanceLibraryDLL.XML
+C:\Users\Laura\Documents\Visual Studio 2013\Projects\FinanceLibrary\YahooFinanceLibraryDLL\bin\Debug\YahooFinanceLibraryDLL.dll
+C:\Users\Laura\Documents\Visual Studio 2013\Projects\FinanceLibrary\YahooFinanceLibraryDLL\bin\Debug\YahooFinanceLibraryDLL.pdb
+C:\Users\Laura\Documents\Visual Studio 2013\Projects\FinanceLibrary\YahooFinanceLibraryDLL\obj\Debug\YahooFinanceLibraryDLL.dll
+C:\Users\Laura\Documents\Visual Studio 2013\Projects\FinanceLibrary\YahooFinanceLibraryDLL\obj\Debug\YahooFinanceLibraryDLL.pdb
+C:\Users\Laura\Documents\Visual Studio 2013\Projects\FinanceLibrary\YahooFinanceLibraryDLL\bin\Debug\YahooFinanceLibraryDLL.dll.CodeAnalysisLog.xml
+C:\Users\Laura\Documents\Visual Studio 2013\Projects\FinanceLibrary\YahooFinanceLibraryDLL\bin\Debug\YahooFinanceLibraryDLL.dll.lastcodeanalysissucceeded
+C:\Users\Laura\Documents\Visual Studio 2013\Projects\FinanceLibrary\YahooFinanceLibraryDLL\obj\Debug\FinanceLibrary.csprojResolveAssemblyReference.cache

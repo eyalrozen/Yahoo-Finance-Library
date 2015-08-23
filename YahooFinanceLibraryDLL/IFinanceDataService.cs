@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YahooFinanceLibraryDLL
+namespace FinanceLibrary
 {
     /// <summary>
     /// Interface of finance data services
@@ -12,7 +12,7 @@ namespace YahooFinanceLibraryDLL
     public interface IFinanceDataService
     {
         /// <summary>
-        /// Get finance data service for given symbol
+        /// Get finance data service for given symbol. Throws FinanceDataServiceException
         /// </summary>
         /// <param name="companySymbol">Company finance symbol should contains upper letters only</param>
         /// <returns>IFinanceDataService</returns>
