@@ -41,9 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FinanceData.cs" />
-    <Compile Include="FinanceDataImport.cs" />
+    <Compile Include="FinanceDataClass.cs" />
+    <Compile Include="FinanceDataFactory.cs" />
+    <Compile Include="FinanceDataFactoryYahoo.cs" />
     <Compile Include="FinanceDataServiceException.cs" />
-    <Compile Include="FinanceDataServiceFactory.cs" />
     <Compile Include="IFinanceDataService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

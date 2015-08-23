@@ -7,23 +7,23 @@ using System.Xml;
 
 namespace YahooFinanceLibraryDLL
 {
-    public class FinanceDataImport : IFinanceDataService
+    class FinanceDataFactoryYahoo : IFinanceDataService
     {
         /// <summary>
         /// 
         /// </summary>
-        private static FinanceDataImport instance;
+        private static FinanceDataFactoryYahoo instance;
 
         /// <summary>
         /// 
         /// </summary>
-        public static FinanceDataImport Instance
+        public static FinanceDataFactoryYahoo Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new FinanceDataImport();
+                    instance = new FinanceDataFactoryYahoo();
                 }
                 return instance;
             }
@@ -32,7 +32,7 @@ namespace YahooFinanceLibraryDLL
         /// <summary>
         /// 
         /// </summary>
-        private FinanceDataImport()
+        private FinanceDataFactoryYahoo()
         {
         }
 
@@ -43,7 +43,7 @@ namespace YahooFinanceLibraryDLL
         /// <returns></returns>
         public IFinanceDataService GetFinanceDataService(string companySymbol)
         {
-            FinanceData financeData = new FinanceData();
+            //FinanceData financeData = new FinanceData();
             var addr =
                 "https://query.yahooapis.com/v1/public/yql?q=select+%2A+from+yahoo.finance.quotes+where+symbol+in+%28%22" +
                 companySymbol +
@@ -55,7 +55,8 @@ namespace YahooFinanceLibraryDLL
             }
             catch (Exception e)
             {
-                throw new FinanceDataServiceException("Unable to connect to http server. reason: " + e.Message);
+                throw new FinanceDataServiceException("Unable to connect to http Yahoo server. Reason: " + e.Message);
+                return null;
             }
 
             try
@@ -69,32 +70,16 @@ namespace YahooFinanceLibraryDLL
                     string changeinPercent = xn["ChangeinPercent"].InnerText;
                     string lastTradeTime = xn["LastTradeTime"].InnerText;
                     string lastTradeDate = xn["LastTradeDate"].InnerText;
-                    Console.WriteLine("Company Name: " + companyName);
-                    Console.WriteLine("last Trade Price: " + lastTradePrice);
-                    Console.WriteLine("Change:" + change);
-                    Console.WriteLine("Change in Percent:" + changeinPercent);
-                    Console.WriteLine("Last trade date:" + lastTradeDate);
-                    Console.WriteLine("Last Trade Time:" + lastTradeTime);
 
-                    financeData.companyName = companyName;
-                    financeData.lastTradeTime = lastTradeTime;
-                    financeData.change = change;
-                    financeData.currentValue = lastTradePrice;
-                    financeData.percentChange = changeinPercent;
-                    financeData.lastTradeDate = lastTradeDate;
-
-                    return financeData;
-
-
+                    return new FinanceData(companySymbol, companyName, lastTradePrice, change, changeinPercent, lastTradeTime, lastTradeDate);
                 }
             }
             catch (Exception e)
             {
-                throw new FinanceDataServiceException("Unable to find the node list. reason: " + e.Message);
+                throw new FinanceDataServiceException("Unable to parse node list. Reason: " + e.Message);
             }
 
-            return financeData;
-
+            return new FinanceData();
         }
     }
 }

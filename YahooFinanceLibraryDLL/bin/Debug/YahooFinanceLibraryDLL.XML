@@ -10,6 +10,29 @@
             Implements IFinanceDataService
             </summary>
         </member>
+        <member name="T:YahooFinanceLibraryDLL.FinanceDataClass">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:YahooFinanceLibraryDLL.FinanceDataClass.#ctor(System.String,System.String,System.Double,System.Double,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="symbol"></param>
+            <param name="companyName"></param>
+            <param name="currentValue"></param>
+            <param name="change"></param>
+            <param name="percentChange"></param>
+            <param name="lastTradeTime"></param>
+            <param name="lastTradeDate"></param>
+        </member>
+        <member name="M:YahooFinanceLibraryDLL.FinanceDataClass.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:YahooFinanceLibraryDLL.IFinanceDataService">
             <summary>
             Interface of finance data services
@@ -46,24 +69,42 @@
             <param name="companySymbol">Company name of symbol given</param>
             <returns></returns>
         </member>
-        <member name="F:YahooFinanceLibraryDLL.FinanceDataImport.instance">
+        <member name="T:YahooFinanceLibraryDLL.FinanceDataFactory">
             <summary>
             
             </summary>
         </member>
-        <member name="M:YahooFinanceLibraryDLL.FinanceDataImport.#ctor">
+        <member name="M:YahooFinanceLibraryDLL.FinanceDataFactory.GetFinanceDataService(YahooFinanceLibraryDLL.FinanceDataFactory.FinanceImport,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="importFrom"></param>
+            <param name="companySymbol"></param>
+            <returns></returns>
+        </member>
+        <member name="T:YahooFinanceLibraryDLL.FinanceDataFactory.FinanceImport">
             <summary>
             
             </summary>
         </member>
-        <member name="M:YahooFinanceLibraryDLL.FinanceDataImport.GetFinanceDataService(System.String)">
+        <member name="F:YahooFinanceLibraryDLL.FinanceDataFactoryYahoo.instance">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:YahooFinanceLibraryDLL.FinanceDataFactoryYahoo.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:YahooFinanceLibraryDLL.FinanceDataFactoryYahoo.GetFinanceDataService(System.String)">
             <summary>
             
             </summary>
             <param name="companySymbol"></param>
             <returns></returns>
         </member>
-        <member name="P:YahooFinanceLibraryDLL.FinanceDataImport.Instance">
+        <member name="P:YahooFinanceLibraryDLL.FinanceDataFactoryYahoo.Instance">
             <summary>
             
             </summary>
@@ -85,13 +126,6 @@
             </summary>
             <param name="message"></param>
             <param name="inner"></param>
-        </member>
-        <member name="M:YahooFinanceLibraryDLL.FinanceDataServiceFactory.GetFinanceDataService(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="companySymbol"></param>
-            <returns></returns>
         </member>
     </members>
 </doc>
