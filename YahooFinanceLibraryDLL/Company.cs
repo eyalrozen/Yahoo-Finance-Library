@@ -8,8 +8,8 @@ namespace FinanceLibrary
 {
     class Company
     {
-        string name { get; set; }
-        string symbol { get; set; }
+        public string name { get; private set; }
+        public string symbol { get; private set; }
 
         public Company(string name, string symbol)
         {

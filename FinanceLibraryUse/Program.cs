@@ -16,7 +16,7 @@ namespace FinanceLibraryUse
             Console.WriteLine(yahooInstance.ToString());
             IFinanceDataService some2 = FinanceDataServiceFactory.getWeatherDataService(FinanceDataServiceFactory.FinanceDataImport.GOOGLE);
             FinanceData googleInstance = some2.getFinanceData("INTC");
-            Console.WriteLine(googleInstance.ToString());
+            Console.WriteLine(googleInstance.ToString());    
         }
     }
 }
