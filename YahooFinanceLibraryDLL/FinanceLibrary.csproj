@@ -40,13 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FinanceDataClass.cs" />
+    <Compile Include="Company.cs" />
+    <Compile Include="Eps.cs" />
     <Compile Include="FinanceData.cs" />
     <Compile Include="FinanceDataFactory.cs" />
-    <Compile Include="FinanceDataFactoryYahoo.cs" />
+    <Compile Include="FinanceDataServiceGoogleFactory.cs" />
+    <Compile Include="FinanceDataServiceYahooFactory.cs" />
     <Compile Include="FinanceDataServiceException.cs" />
     <Compile Include="IFinanceDataService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ratio.cs" />
+    <Compile Include="TradeTime.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

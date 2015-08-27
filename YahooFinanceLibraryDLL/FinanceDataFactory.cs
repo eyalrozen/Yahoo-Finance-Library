@@ -6,42 +6,37 @@ using System.Threading.Tasks;
 
 namespace FinanceLibrary
 {
-    /// <summary>
-    /// Create FinanceData instance via indicated server (FinanceImport enum)
-    /// </summary>
-    public class FinanceDataFactory
+    public abstract class FinanceDataServiceFactory : IFinanceDataService
     {
         /// <summary>
-        /// Create enum for each possible finance import option
+        /// Enums that indicated factories instance possibilities
         /// </summary>
-        public enum FinanceImport { YAHOO };
+        public enum FinanceDataImport { YAHOO, GOOGLE };
 
         /// <summary>
-        /// Factory of FinanceData object, will import data via FinanceImport enum value
-        /// Throws FinanceDataServiceException
+        /// 
         /// </summary>
-        /// <param name="importFrom">Enum of wanted server import</param>
-        /// <param name="companySymbol">Stock company symbol</param>
-        /// <returns></returns>
-        public IFinanceDataService GetFinanceDataService(FinanceImport importFrom, string companySymbol)
+        /// <param name="importFrom">Enum of factory</param>
+        /// <returns>Factory instance to create FinanceData object</returns>
+        public static IFinanceDataService getWeatherDataService(FinanceDataImport importFrom)
         {
-            if (companySymbol == "") throw new FinanceDataServiceException("Symbol cannot be empty string");
-
-            try
+            switch (importFrom)
             {
-                switch (importFrom)
-                {
-                    case FinanceImport.YAHOO:
-                        return FinanceDataFactoryYahoo.Instance.GetFinanceDataService(companySymbol);
-                    default:
-                        throw new FinanceDataServiceException("FinanceImport enum is invalid");
-                }
-            }
-            catch (Exception e)
-            {
-                throw new FinanceDataServiceException("Unable to create FinanceData object with symbol [" + companySymbol + "]"
-                + " from " + importFrom.ToString() + ". Reason: " + e.Message, e);
+                case FinanceDataImport.YAHOO:
+                    return FinanceDataServiceYahooFactory.Instance;
+                case FinanceDataImport.GOOGLE:
+                    return FinanceDataServiceGoogleFactory.Instance;
+                default:
+                    throw new FinanceDataServiceException("Wrong arguments");
             }
         }
+
+        /// <summary>
+        /// Inherited classes should implement IFinanceDataService methods
+        /// </summary>
+        /// <param name="companySymbol">Symbol stock of company</param>
+        /// <returns>Finance data from factory asked</returns>
+        public abstract FinanceData getFinanceData(string companySymbol);
+
     }
 }

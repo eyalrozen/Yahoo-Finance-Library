@@ -10,29 +10,33 @@ namespace FinanceLibraryTest
         [TestMethod]
         public void GetFinanceDataFromYahoo()
         {
-            object intelFinance = new FinanceDataFactory().GetFinanceDataService(FinanceDataFactory.FinanceImport.YAHOO, "INTC");
-            Assert.IsInstanceOfType(intelFinance, typeof(IFinanceDataService));
+            IFinanceDataService some = FinanceDataServiceFactory.getWeatherDataService(FinanceDataServiceFactory.FinanceDataImport.YAHOO);
+            FinanceData yahooInstance = some.getFinanceData("GOOG");
+            Assert.IsInstanceOfType(yahooInstance, typeof(FinanceData));
         }
 
         [TestMethod]
         [ExpectedException(typeof(FinanceDataServiceException))]
         public void EmptySymbol()
         {
-            object intelFinance = new FinanceDataFactory().GetFinanceDataService(FinanceDataFactory.FinanceImport.YAHOO, "");
+            IFinanceDataService some = FinanceDataServiceFactory.getWeatherDataService(FinanceDataServiceFactory.FinanceDataImport.YAHOO);
+            FinanceData yahooInstance = some.getFinanceData("");
         }
 
         [TestMethod]
         [ExpectedException(typeof(FinanceDataServiceException))]
         public void NoConnection()
         {
-            object intelFinance = new FinanceDataFactory().GetFinanceDataService(FinanceDataFactory.FinanceImport.YAHOO, "INTC");
+            IFinanceDataService some = FinanceDataServiceFactory.getWeatherDataService(FinanceDataServiceFactory.FinanceDataImport.YAHOO);
+            FinanceData yahooInstance = some.getFinanceData("GOOG");
         }
 
         [TestMethod]
         [ExpectedException(typeof(FinanceDataServiceException))]
         public void WrongSymbol()
         {
-            object intelFinance = new FinanceDataFactory().GetFinanceDataService(FinanceDataFactory.FinanceImport.YAHOO, "STAMMASHU");
+            IFinanceDataService some = FinanceDataServiceFactory.getWeatherDataService(FinanceDataServiceFactory.FinanceDataImport.YAHOO);
+            FinanceData yahooInstance = some.getFinanceData("SDFDFDPOI");
         }
     }
 }

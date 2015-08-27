@@ -11,16 +11,12 @@ namespace FinanceLibraryUse
     {
         static void Main(string[] args)
         {
-            try
-            {
-                object intelFinance = new FinanceDataFactory().GetFinanceDataService(FinanceDataFactory.FinanceImport.YAHOO, "goog");
-                Console.WriteLine(intelFinance.ToString());
-            }
-            catch (FinanceDataServiceException e)
-            {
-               Console.WriteLine(e.Message);
-            }
-
+            IFinanceDataService some = FinanceDataServiceFactory.getWeatherDataService(FinanceDataServiceFactory.FinanceDataImport.YAHOO);
+            FinanceData yahooInstance = some.getFinanceData("");
+            Console.WriteLine(yahooInstance.ToString());
+            IFinanceDataService some2 = FinanceDataServiceFactory.getWeatherDataService(FinanceDataServiceFactory.FinanceDataImport.GOOGLE);
+            FinanceData googleInstance = some2.getFinanceData("INTC");
+            Console.WriteLine(googleInstance.ToString());
         }
     }
 }

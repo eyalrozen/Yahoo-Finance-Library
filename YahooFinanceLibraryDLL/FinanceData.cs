@@ -7,54 +7,71 @@ using System.Threading.Tasks;
 namespace FinanceLibrary
 {
     /// <summary>
-    /// FinanceData Object - Contains company name, stock symbol, stock current value, change, percent change, last trade time (Date and hour)
+    /// Finance Data object were data will be saved
     /// </summary>
     public class FinanceData
     {
-        public string symbol { get; set; }
-        public string companyName { get; set; }
-        public double currentValue { get; set; }
-        public double change { get; set; }
-        public string percentChange { get; set; }
-        public string lastTradeTime { get; set; }
-        public string lastTradeDate { get; set; }
+        #region Members
+        Company company { get; set; }
+        float open { get; set; }
+        float previousClose { get; set; }
+        string changeInPercent { get; set; }
+        float priceSales { get; set; }
+        float priceBook { get; set; }
+        Ratio ratio;
+        Eps eps;
+        TradeTime tradeTime;
+        float oneYearTargetPrice { get; set; }
+        long volume { get; set; }
+        string yearRange { get; set; }
+        string stockExchange { get; set; }
+        string percentChange { get; set; }
+        float ask { get; set; }
+        long averageDailyVolume { get; set; }
+        float bid { get; set; }
+        float bookValue { get; set; }
+        float change { get; set; }
+        string currency { get; set; }
+        float earningsShare { get; set; }
+        #endregion
 
-        /// <summary>
-        /// Constructor for FinanceData
-        /// </summary>
-        /// <param name="symbol">Stock symbol</param>
-        /// <param name="companyName">Company name</param>
-        /// <param name="currentValue">Stock value</param>
-        /// <param name="change">Change</param>
-        /// <param name="percentChange">Change percent</param>
-        /// <param name="lastTradeTime">Last trade time hour</param>
-        /// <param name="lastTradeDate">Last trade time date</param>
-        protected FinanceData(string symbol, string companyName, double currentValue, double change, string percentChange,
-            string lastTradeTime, string lastTradeDate)
+        internal FinanceData(string companyName, string companySymbol, float previousClose, float change, string changeInPercent, string lastDate,
+            string lastTime, float open = 0, float priceSales = 0, float priceBook = 0, float peRatio = 0, float pegRatio = 0, float shortRatio = 0, float estimateCurrentYearPrice = 0,
+             float estimateNextYearPrice = 0, float oneYearTargetPrice = 0, long volume = 0,
+             string yearRange = "", string stockExchange = "", string percentChange = "", float ask = 0, long averageDailyVolume = 0, float bid = 0,
+             float bookValue = 0, string currency = "", float earningsShare = 0)
         {
-            this.symbol = symbol;
-            this.companyName = companyName;
-            this.currentValue = currentValue;
-            this.change = change;
+            this.company = new Company(companyName, companySymbol);
+            this.open = open;
+            this.previousClose = previousClose;
+            this.changeInPercent = changeInPercent;
+            this.priceSales = priceSales;
+            this.priceBook = priceBook;
+            this.ratio = new Ratio(peRatio, pegRatio, shortRatio);
+            this.eps = new Eps(estimateCurrentYearPrice, estimateNextYearPrice);
+            this.tradeTime = new TradeTime(lastDate, lastTime);
+            this.oneYearTargetPrice = oneYearTargetPrice;
+            this.volume = volume;
+            this.yearRange = yearRange;
+            this.stockExchange = stockExchange;
             this.percentChange = percentChange;
-            this.lastTradeTime = lastTradeTime;
-            this.lastTradeDate = lastTradeDate;
+            this.ask = ask;
+            this.averageDailyVolume = averageDailyVolume;
+            this.bid = bid;
+            this.bookValue = bookValue;
+            this.change = change;
+            this.currency = currency;
+            this.earningsShare = earningsShare;
         }
 
         /// <summary>
-        /// Print all object values
+        /// To string override to print easily the instance
         /// </summary>
-        /// <returns>string description</returns>
+        /// <returns>string with description</returns>
         public override string ToString()
         {
-            string description = "Company name: " + companyName;
-            description += "\nSymbol: " + symbol;
-            description += "\nCurrent Value: " + currentValue;
-            description += "\nChange: " + change;
-            description += "\nPercentage Change: " + percentChange;
-            description += "\nLast trade time: " + lastTradeDate + " " + lastTradeTime;
-
-            return description;
+            return "Company: " + company.ToString();
         }
+
     }
 }

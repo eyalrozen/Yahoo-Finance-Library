@@ -16,7 +16,7 @@ namespace FinanceLibrary
         /// </summary>
         /// <param name="companySymbol">Company finance symbol should contains upper letters only</param>
         /// <returns>IFinanceDataService</returns>
-        IFinanceDataService GetFinanceDataService(string companySymbol);
+        FinanceData getFinanceData(string companySymbol);
 
     }
 }

@@ -4,111 +4,46 @@
         <name>YahooFinanceLibraryDLL</name>
     </assembly>
     <members>
-        <member name="T:FinanceLibrary.FinanceDataClass">
-            <summary>
-            Class that contain finance data
-            Implements IFinanceDataService
-            </summary>
-        </member>
         <member name="T:FinanceLibrary.FinanceData">
             <summary>
-            FinanceData Object - Contains company name, stock symbol, stock current value, change, percent change, last trade time (Date and hour)
+            Finance Data object were data will be saved
             </summary>
-        </member>
-        <member name="M:FinanceLibrary.FinanceData.#ctor(System.String,System.String,System.Double,System.Double,System.String,System.String,System.String)">
-            <summary>
-            Constructor for FinanceData
-            </summary>
-            <param name="symbol">Stock symbol</param>
-            <param name="companyName">Company name</param>
-            <param name="currentValue">Stock value</param>
-            <param name="change">Change</param>
-            <param name="percentChange">Change percent</param>
-            <param name="lastTradeTime">Last trade time hour</param>
-            <param name="lastTradeDate">Last trade time date</param>
         </member>
         <member name="M:FinanceLibrary.FinanceData.ToString">
             <summary>
-            Print all object values
+            To string override to print easily the instance
             </summary>
-            <returns>string description</returns>
+            <returns>string with description</returns>
         </member>
         <member name="T:FinanceLibrary.IFinanceDataService">
             <summary>
             Interface of finance data services
             </summary>
         </member>
-        <member name="M:FinanceLibrary.IFinanceDataService.GetFinanceDataService(System.String)">
+        <member name="M:FinanceLibrary.IFinanceDataService.getFinanceData(System.String)">
             <summary>
             Get finance data service for given symbol. Throws FinanceDataServiceException
             </summary>
             <param name="companySymbol">Company finance symbol should contains upper letters only</param>
             <returns>IFinanceDataService</returns>
         </member>
-        <member name="M:FinanceLibrary.FinanceDataClass.#ctor(System.String,System.String,System.Double,System.Double,System.String,System.String,System.String)">
+        <member name="M:FinanceLibrary.FinanceDataServiceFactory.getWeatherDataService(FinanceLibrary.FinanceDataServiceFactory.FinanceDataImport)">
             <summary>
-            Constructor of FinanceData
+            
             </summary>
-            <param name="symbol">Finance symbol in upper letters</param>
-            <param name="companyName">Company name of symbol given</param>
-            <param name="currentValue">Finance current value</param>
-            <param name="change">Finance change value</param>
-            <param name="percentChange">Percent change of finance</param>
-            <param name="lastTradeTime">Hour of last trade time</param>
-            <param name="lastTradeDate">Date of last trade time</param>
+            <param name="importFrom">Enum of factory</param>
+            <returns>Factory instance to create FinanceData object</returns>
         </member>
-        <member name="M:FinanceLibrary.FinanceDataClass.GetFinanceDataService(System.String)">
+        <member name="M:FinanceLibrary.FinanceDataServiceFactory.getFinanceData(System.String)">
             <summary>
-            FinanceData implements GetFinanceDataService 
+            Inherited classes should implement IFinanceDataService methods
             </summary>
-            <param name="companySymbol">Company name of symbol given</param>
-            <returns></returns>
+            <param name="companySymbol">Symbol stock of company</param>
+            <returns>Finance data from factory asked</returns>
         </member>
-        <member name="T:FinanceLibrary.FinanceDataFactory">
+        <member name="T:FinanceLibrary.FinanceDataServiceFactory.FinanceDataImport">
             <summary>
-            Create FinanceData instance via indicated server (FinanceImport enum)
-            </summary>
-        </member>
-        <member name="M:FinanceLibrary.FinanceDataFactory.GetFinanceDataService(FinanceLibrary.FinanceDataFactory.FinanceImport,System.String)">
-            <summary>
-            Factory of FinanceData object, will import data via FinanceImport enum value
-            Throws FinanceDataServiceException
-            </summary>
-            <param name="importFrom">Enum of wanted server import</param>
-            <param name="companySymbol">Stock company symbol</param>
-            <returns></returns>
-        </member>
-        <member name="T:FinanceLibrary.FinanceDataFactory.FinanceImport">
-            <summary>
-            Create enum for each possible finance import option
-            </summary>
-        </member>
-        <member name="T:FinanceLibrary.FinanceDataFactoryYahoo">
-            <summary>
-            Create FinanceData object from Yahoo server
-            </summary>
-        </member>
-        <member name="F:FinanceLibrary.FinanceDataFactoryYahoo.instance">
-            <summary>
-            Part of Singleton design pattern structure
-            </summary>
-        </member>
-        <member name="M:FinanceLibrary.FinanceDataFactoryYahoo.#ctor">
-            <summary>
-            Part of Singleton design pattern structure
-            </summary>
-        </member>
-        <member name="M:FinanceLibrary.FinanceDataFactoryYahoo.GetFinanceDataService(System.String)">
-            <summary>
-            Implementation of IFinanceDataService
-            Import finance data and parse xml received from yahoo server
-            </summary>
-            <param name="companySymbol"></param>
-            <returns></returns>
-        </member>
-        <member name="P:FinanceLibrary.FinanceDataFactoryYahoo.Instance">
-            <summary>
-            Part of Singleton design pattern structure
+            Enums that indicated factories instance possibilities
             </summary>
         </member>
         <member name="M:FinanceLibrary.FinanceDataServiceException.#ctor">
