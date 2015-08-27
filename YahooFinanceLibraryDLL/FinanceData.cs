@@ -13,26 +13,26 @@ namespace FinanceLibrary
     {
         #region Members
         Company company { get; set; }
-        float open { get; set; }
-        float previousClose { get; set; }
-        string changeInPercent { get; set; }
-        float priceSales { get; set; }
-        float priceBook { get; set; }
-        Ratio ratio;
-        Eps eps;
-        TradeTime tradeTime;
-        float oneYearTargetPrice { get; set; }
-        long volume { get; set; }
-        string yearRange { get; set; }
-        string stockExchange { get; set; }
-        string percentChange { get; set; }
-        float ask { get; set; }
-        long averageDailyVolume { get; set; }
-        float bid { get; set; }
-        float bookValue { get; set; }
-        float change { get; set; }
-        string currency { get; set; }
-        float earningsShare { get; set; }
+        public float open { get; private set; }
+        public float previousClose { get; private set; }
+        public string changeInPercent { get; private set; }
+        public float priceSales { get; private set; }
+        public float priceBook { get; private set; }
+        Ratio ratio { get; set; }
+        Eps eps { get; set; }
+        TradeTime tradeTime { get; set; }
+        public float oneYearTargetPrice { get; private set; }
+        public long volume { get; private set; }
+        public string yearRange { get; private set; }
+        public string stockExchange { get; private set; }
+        public string percentChange { get; private set; }
+        public float ask { get; private set; }
+        public long averageDailyVolume { get; private set; }
+        public float bid { get; private set; }
+        public float bookValue { get; private set; }
+        public float change { get; private set; }
+        public string currency { get; private set; }
+        public float earningsShare { get; private set; }
         #endregion
 
         internal FinanceData(string companyName, string companySymbol, float previousClose, float change, string changeInPercent, string lastDate,
