@@ -2,9 +2,84 @@
 
 <html>
 <head>
-<h1><a href="https://github.com/eyalrozen/Yahoo-Finance-Library">Go to project</a></h1>
+<style>
+.container{
+    width:100%;
+}
+body{
+    background-color: #ffffff;    
+}
+a {
+    text-decoration: none;
+}
+h2{
+    color: #000000;
+}
+p{
+    color: #718EA4;
+}
+spanComment{
+    color:#5E9732;
+}
+spanFunction {
+    color: #4aaeee;
+}
+spanString {
+    color: #ba6e0e;
+}
+spanPublic {
+    color: blue;
+}
+}
+</style>
 </head>
 <body>
+<div class="container">
+    <h1>
+        <a href="https://github.com/eyalrozen/Yahoo-Finance-Library">Go to project</a>
+    <br><br>
+        Students: Eyal Rozenhack & Laura Chiche <br>
+    </h1>
+        
+        
+    <p><h2>How to use: </h2>
+        <spanComment>
+            //Create factory instance from wanted server (have to be in FinanceDataImport)
+        </spanComment> <br>
+        <spanFunction>IFinanceDataService</spanFunction>
+        yahooFactory = <spanFunction>FinanceDataServiceFactory</spanFunction>
+        .getWeatherDataService(<spanFunction>FinanceDataServiceFactory</spanFunction>.<spanFunction>FinanceDataImport</spanFunction>.YAHOO); <br>
+            <br>
 
+<spanComment>//Create FinanceData from factory created</spanComment> <br>
+<spanFunction>FinanceData</spanFunction> googleFinance = yahooFactory.getFinanceData(<spanString>"GOOG"</spanString>);
+                
+                <h2><br> Adding other server</h2>
+                <spanComment>//Factory Main factory is using enum to differ between the server</spanComment>
+                <spanPublic>public enum </spanPublic>
+                <spanFunction>FinanceDataImport</spanFunction> { YAHOO, GOOGLE };
+                   <br> <br>
+                <spanComment>//Main factory implementation, add enum to switch dase and create new facroty to create financeData obect from onether server</spanComment> <br>
+                       
+                <spanPublic>public enum </spanPublic>
+                <spanFunction>FinanceDataImport</spanFunction> { YAHOO, GOOGLE };    
+                       
+                       <spanPublic>public static</spanPublic> 
+                       <spanFunction>IFinanceDataService</spanFunction> getWeatherDataService(<spanFunction>FinanceDataImport</spanFunction> importFrom) <br>
+        { <br>
+            switch (importFrom) <br>
+            { <br>
+                case FinanceDataImport.YAHOO: <br>
+                    return FinanceDataServiceYahooFactory.Instance; <br>
+                case FinanceDataImport.GOOGLE: <br>
+                    return FinanceDataServiceGoogleFactory.Instance; <br>
+                default: <br>
+                    throw new FinanceDataServiceException("Wrong arguments"); <br>
+            } <br>
+        } <br>
+                       
+</p>    
+<p></p>
+</div>
 </body>
 </html>
