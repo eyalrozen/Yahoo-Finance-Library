@@ -70,7 +70,8 @@ namespace FinanceLibrary
         /// <returns>string with description</returns>
         public override string ToString()
         {
-            return "Company: " + company.ToString();
+            return "Company: " + company.ToString() + "\nTrade date: " + tradeTime.ToString() + "\nChange: " + change + "\n"
+                + "Previous close: " + previousClose;
         }
 
     }

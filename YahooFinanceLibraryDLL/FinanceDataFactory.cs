@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace FinanceLibrary
 {
+    /// <summary>
+    /// Factory of financeData via given enum
+    /// </summary>
     public abstract class FinanceDataServiceFactory : IFinanceDataService
     {
         /// <summary>

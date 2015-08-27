@@ -9,6 +9,7 @@ namespace FinanceLibrary
 {
     class FinanceDataServiceGoogleFactory : FinanceDataServiceFactory
     {
+        #region Singleton
         private static FinanceDataServiceGoogleFactory instance;
         private FinanceDataServiceGoogleFactory() { }
         public static FinanceDataServiceGoogleFactory Instance
@@ -22,7 +23,13 @@ namespace FinanceLibrary
                 return instance;
             }
         }
+        #endregion
 
+        /// <summary>
+        /// Implement getFinanceData methods from interface
+        /// </summary>
+        /// <param name="companySymbol">Company symbol of wanted finance data</param>
+        /// <returns>FinanceData or throw FinanceDataServiceExcetpion</returns>
         public override FinanceData getFinanceData(string companySymbol)
         {
             string companyName, changeInPercent, lastTradeTime, lastTradeDate;

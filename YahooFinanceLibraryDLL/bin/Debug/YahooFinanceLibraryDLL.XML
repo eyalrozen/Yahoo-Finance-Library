@@ -15,6 +15,11 @@
             </summary>
             <returns>string with description</returns>
         </member>
+        <member name="T:FinanceLibrary.FinanceDataServiceFactory">
+            <summary>
+            Factory of financeData via given enum
+            </summary>
+        </member>
         <member name="T:FinanceLibrary.IFinanceDataService">
             <summary>
             Interface of finance data services
@@ -46,6 +51,25 @@
             Enums that indicated factories instance possibilities
             </summary>
         </member>
+        <member name="M:FinanceLibrary.FinanceDataServiceGoogleFactory.getFinanceData(System.String)">
+            <summary>
+            Implement getFinanceData methods from interface
+            </summary>
+            <param name="companySymbol">Company symbol of wanted finance data</param>
+            <returns>FinanceData or throw FinanceDataServiceExcetpion</returns>
+        </member>
+        <member name="M:FinanceLibrary.FinanceDataServiceYahooFactory.getFinanceData(System.String)">
+            <summary>
+            Implement getFinanceData methods from interface
+            </summary>
+            <param name="companySymbol">Company symbol of wanted finance data</param>
+            <returns>FinanceData or throw FinanceDataServiceExcetpion</returns>
+        </member>
+        <member name="T:FinanceLibrary.FinanceDataServiceException">
+            <summary>
+            Exception of FinanceLibrary
+            </summary>
+        </member>
         <member name="M:FinanceLibrary.FinanceDataServiceException.#ctor">
             <summary>
             Initialize en new instance of the FinanceLibrary.FinanceDataServiceException() class
@@ -67,6 +91,43 @@
             <param name="message">The message that describes the error</param>
             <param name="inner">The exception that is the cause of the current exception, 
             or a null reference (Nothing in visual basic) if no inner exception is specified</param>
+        </member>
+        <member name="T:FinanceLibrary.Ratio">
+            <summary>
+            Ration of finance data
+            </summary>
+        </member>
+        <member name="M:FinanceLibrary.Ratio.#ctor(System.Single,System.Single,System.Single)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="pe">PE ratio</param>
+            <param name="peg">PEG ratio</param>
+            <param name="shortR">short ratio</param>
+        </member>
+        <member name="M:FinanceLibrary.Ratio.ToString">
+            <summary>
+            ToString override function
+            </summary>
+            <returns>Description string</returns>
+        </member>
+        <member name="T:FinanceLibrary.TradeTime">
+            <summary>
+            Trade time of finance data
+            </summary>
+        </member>
+        <member name="M:FinanceLibrary.TradeTime.#ctor(System.String,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="date">Last trade date</param>
+            <param name="time">Last trade time</param>
+        </member>
+        <member name="M:FinanceLibrary.TradeTime.ToString">
+            <summary>
+            To string override
+            </summary>
+            <returns>Description string</returns>
         </member>
     </members>
 </doc>

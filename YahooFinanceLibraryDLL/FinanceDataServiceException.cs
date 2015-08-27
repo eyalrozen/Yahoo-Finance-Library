@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace FinanceLibrary
 {
+    /// <summary>
+    /// Exception of FinanceLibrary
+    /// </summary>
     public class FinanceDataServiceException : Exception
     {
         /// <summary>

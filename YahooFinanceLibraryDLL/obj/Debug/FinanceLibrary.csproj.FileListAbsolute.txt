@@ -4,3 +4,9 @@ C:\Users\Laura\Documents\Visual Studio 2013\Projects\FinanceLibrary\YahooFinance
 C:\Users\Laura\Documents\Visual Studio 2013\Projects\FinanceLibrary\YahooFinanceLibraryDLL\obj\Debug\YahooFinanceLibraryDLL.dll
 C:\Users\Laura\Documents\Visual Studio 2013\Projects\FinanceLibrary\YahooFinanceLibraryDLL\obj\Debug\YahooFinanceLibraryDLL.pdb
 C:\Users\Laura\Documents\Visual Studio 2013\Projects\FinanceLibrary\YahooFinanceLibraryDLL\obj\Debug\FinanceLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Laura\Documents\GitHub\Finance\Yahoo-Finance-Library\YahooFinanceLibraryDLL\bin\Debug\YahooFinanceLibraryDLL.XML
+C:\Users\Laura\Documents\GitHub\Finance\Yahoo-Finance-Library\YahooFinanceLibraryDLL\bin\Debug\YahooFinanceLibraryDLL.dll
+C:\Users\Laura\Documents\GitHub\Finance\Yahoo-Finance-Library\YahooFinanceLibraryDLL\bin\Debug\YahooFinanceLibraryDLL.pdb
+C:\Users\Laura\Documents\GitHub\Finance\Yahoo-Finance-Library\YahooFinanceLibraryDLL\obj\Debug\FinanceLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Laura\Documents\GitHub\Finance\Yahoo-Finance-Library\YahooFinanceLibraryDLL\obj\Debug\YahooFinanceLibraryDLL.dll
+C:\Users\Laura\Documents\GitHub\Finance\Yahoo-Finance-Library\YahooFinanceLibraryDLL\obj\Debug\YahooFinanceLibraryDLL.pdb

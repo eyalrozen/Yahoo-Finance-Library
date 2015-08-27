@@ -9,6 +9,7 @@ namespace FinanceLibrary
 {
     class FinanceDataServiceYahooFactory : FinanceDataServiceFactory
     {
+        #region Singleton
         private static FinanceDataServiceYahooFactory instance;
         private FinanceDataServiceYahooFactory() { }
         public static FinanceDataServiceYahooFactory Instance
@@ -22,7 +23,13 @@ namespace FinanceLibrary
                 return instance;
             }
         }
+        #endregion
 
+        /// <summary>
+        /// Implement getFinanceData methods from interface
+        /// </summary>
+        /// <param name="companySymbol">Company symbol of wanted finance data</param>
+        /// <returns>FinanceData or throw FinanceDataServiceExcetpion</returns>
         public override FinanceData getFinanceData(string companySymbol)
         {
             string companyName, changeInPercent, lastTradeTime, lastTradeDate;

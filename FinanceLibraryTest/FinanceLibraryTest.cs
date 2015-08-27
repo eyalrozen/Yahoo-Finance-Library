@@ -7,6 +7,9 @@ namespace FinanceLibraryTest
     [TestClass]
     public class FinanceLibraryTest
     {
+        /// <summary>
+        /// Check that we got financeData with wanted value
+        /// </summary>
         [TestMethod]
         public void GetFinanceDataFromYahoo()
         {
@@ -15,6 +18,9 @@ namespace FinanceLibraryTest
             Assert.IsInstanceOfType(yahooInstance, typeof(FinanceData));
         }
 
+        /// <summary>
+        /// Check we got exception when sending empty symbol
+        /// </summary>
         [TestMethod]
         [ExpectedException(typeof(FinanceDataServiceException))]
         public void EmptySymbol()
@@ -23,6 +29,9 @@ namespace FinanceLibraryTest
             FinanceData yahooInstance = some.getFinanceData("");
         }
 
+        /// <summary>
+        /// Check we got exception when we got to connection to server
+        /// </summary>
         [TestMethod]
         [ExpectedException(typeof(FinanceDataServiceException))]
         public void NoConnection()
@@ -31,6 +40,9 @@ namespace FinanceLibraryTest
             FinanceData yahooInstance = some.getFinanceData("GOOG");
         }
 
+        /// <summary>
+        /// Check we got exception when sending unknown symbol
+        /// </summary>
         [TestMethod]
         [ExpectedException(typeof(FinanceDataServiceException))]
         public void WrongSymbol()
